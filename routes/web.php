@@ -15,9 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/users');
 });
 
-Route::get('/users', [UsersController::class, 'index']);
-Route::get('/users/create', [UsersController::class, 'create']);
-Route::post('/users/store', [UsersController::class, 'store']);
+Route::resource('/users', UsersController::class)->only(['index', 'create', 'store', 'destroy']);

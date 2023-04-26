@@ -1,5 +1,5 @@
 <x-layout title="Novo Usuário">
-    <form action="/users/store" method="post" class="row g-3">
+    <form action="{{ route('users.store') }}" method="post" class="row g-3">
         @csrf
         <div class="col-md-4">
             <label for="nome" class="form-label">Nome Completo:</label>

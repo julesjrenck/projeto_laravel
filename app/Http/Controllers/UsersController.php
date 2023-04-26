@@ -7,9 +7,10 @@ use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
-    public function index() {
+    public function index(Request $request) {
         $users = User::all(); // User::query()->orderBy('nome')->get();
-        return view('users.index')->with('users', $users);
+        $mensagemSucesso = $request->session()->get('mensagem.sucesso');
+        return view('users.index')->with('users', $users)->with('mensagemSucesso', $mensagemSucesso);
     }
 
     public function create() {
@@ -17,14 +18,15 @@ class UsersController extends Controller
     }
 
     public function store(Request $request) {
-       $user = new User();
-       $user->nome = $request->input('nome');
-       $user->senha = $request->input('senha');
-       $user->data_nascimento = $request->input('data_nascimento');
-       $user->cpf = $request->input('cpf');
-       $user->telefone = $request->input('telefone');
-       $user->email = $request->input('email');
-       $user->save();
-       return redirect('/users');
+       //User::create($request->all());
+       User::create($request->only(['nome', 'senha', 'data_nascimento', 'cpf', 'telefone', 'email']));
+       $request->session()->flash('mensagem.sucesso', 'Usuário adicionado com sucesso');
+       return to_route('users.index');
+    }
+
+    public function destroy(Request $request) {
+        User::destroy($request->user);
+        $request->session()->flash('mensagem.sucesso', 'Usuário removido com sucesso');
+        return to_route('users.index');
     }
 }
