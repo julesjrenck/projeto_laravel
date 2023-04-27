@@ -18,4 +18,4 @@ Route::get('/', function () {
     return redirect('/users');
 });
 
-Route::resource('/users', UsersController::class)->only(['index', 'create', 'store', 'destroy']);
+Route::resource('/users', UsersController::class)->except(['show']);
