@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UsersFormRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -17,7 +18,8 @@ class UsersController extends Controller
         return view('users.create');
     }
 
-    public function store(Request $request) {
+    public function store(UsersFormRequest $request) {
+       
        $user = User::create($request->all());
        $request->session()->flash('mensagem.sucesso', "Usuário {$user->nome} adicionado com sucesso");
        return to_route('users.index');
@@ -33,7 +35,7 @@ class UsersController extends Controller
         return view('users.edit')->with('user', $user);
     }
 
-    public function update(User $user, Request $request) {
+    public function update(User $user, UsersFormRequest $request) {
         $user->fill($request->all());
         $user->save();
 
