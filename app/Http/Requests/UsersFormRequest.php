@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\FullName;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UsersFormRequest extends FormRequest
@@ -24,7 +25,7 @@ class UsersFormRequest extends FormRequest
         switch ($this->method()) {
             case 'POST': {
                 return [
-                    'nome' => ['required', 'min:3'],
+                    'nome' => ['required', 'min:3', new FullName],
                     'senha' => ['required', 'min:8'],
                     'data_nascimento' => 'required',
                     'cpf' => ['required', 'digits:11'],
