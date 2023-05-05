@@ -17,7 +17,7 @@ return new class extends Migration
             $table->char('cep', 8);
             $table->string('rua', 50);
             $table->string('numero', 50);
-            $table->string('complemento', 50);
+            $table->string('complemento', 50)->nullable(true);
             $table->string('bairro', 50);
             $table->string('cidade', 50);
             $table->string('estado', 50);
