@@ -9,4 +9,9 @@ class User extends Model
 {
     use HasFactory;
     protected $fillable = ['nome', 'senha', 'data_nascimento', 'cpf', 'telefone', 'email'];
+
+    public function enderecos()
+    {
+        return $this->hasOne(Endereco::class, 'users_id');
+    }
 }

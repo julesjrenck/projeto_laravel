@@ -32,6 +32,7 @@ class UsersController extends Controller
     }
 
     public function edit(User $user) {
+        dd($user->enderecos);
         return view('users.edit')->with('user', $user);
     }
 
