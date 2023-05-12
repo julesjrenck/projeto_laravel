@@ -15,11 +15,11 @@
         @enderror  
     </div>    
     <div class="col-md-4">
-        <label for="senha" class="form-label">Senha:</label>
-        <input type="password" id="senha" name="senha" class="form-control
-            @error('senha') is-invalid @enderror"  
-            @isset($senha)value="{{ $senha }}"@endisset>
-        @error('senha')  
+        <label for="password" class="form-label">Senha:</label>
+        <input type="password" id="password" name="password" class="form-control
+            @error('password') is-invalid @enderror"  
+            @isset($password)value="{{ $password }}"@endisset>
+        @error('password')  
         <div class="invalid-feedback">
             {{$message}}
         </div>

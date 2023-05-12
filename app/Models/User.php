@@ -3,12 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Model
+class User extends Authenticatable
 {
     use HasFactory;
-    protected $fillable = ['nome', 'senha', 'data_nascimento', 'cpf', 'telefone', 'email'];
+    protected $fillable = ['nome', 'password', 'data_nascimento', 'cpf', 'telefone', 'email'];
 
     public function enderecos()
     {

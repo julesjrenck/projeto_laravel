@@ -26,7 +26,7 @@ class UsersFormRequest extends FormRequest
             case 'POST': {
                 return [
                     'nome' => ['required', 'min:3', new FullName],
-                    'senha' => ['required', 'min:8'],
+                    'password' => ['required', 'min:8'],
                     'data_nascimento' => 'required',
                     'cpf' => ['required', 'digits:11'],
                     'telefone' => ['required', 'digits:11'],
@@ -36,7 +36,7 @@ class UsersFormRequest extends FormRequest
             case 'PUT': {
                 return [
                     'nome' => ['required', 'min:3'],
-                    'senha' => ['required', 'min:8'],
+                    'password' => ['required', 'min:8'],
                     'data_nascimento' => 'required',
                     'cpf' => ['required', 'digits:11'],
                     'telefone' => ['required', 'digits:11']
@@ -51,8 +51,8 @@ class UsersFormRequest extends FormRequest
         return [
             'nome.required' => 'O campo nome é obrigatório',
             'nome.min' => 'O campo nome precisa de pelo menos :min caracteres',
-            'senha.required' => 'O campo senha é obrigatório',
-            'senha.min' => 'O campo senha precisa de pelo menos :min caracteres',
+            'password.required' => 'O campo senha é obrigatório',
+            'password.min' => 'O campo senha precisa de pelo menos :min caracteres',
             'data_nascimento.required' => 'O campo data é obrigatório',
             'cpf.required' => 'O campo cpf é obrigatório',
             'cpf.digits' => 'O campo cpf deve conter :digits números',
