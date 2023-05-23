@@ -20,7 +20,7 @@ Route::get('/', function () {
     return redirect('/users');
 })->middleware(\App\Http\Middleware\Autenticador::class);
 
-Route::resource('/users', UsersController::class)->except(['show']);
+Route::resource('/users', UsersController::class);
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'store'])->name('signin');

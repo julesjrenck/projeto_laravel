@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class LoginController extends Controller
 {
@@ -14,7 +15,8 @@ class LoginController extends Controller
         if(!Auth::attempt($request->except(['_token']))){
             return redirect()->back()->withErrors('Usuário ou senha inválidos');
         }
-        return to_route('users.index');
+        $user = User::query()->where('email', $request['email'])->first();
+        return to_route('users.show', $user->id);
     }
     public function destroy() {
         Auth::logout();

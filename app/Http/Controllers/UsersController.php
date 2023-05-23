@@ -46,4 +46,8 @@ class UsersController extends Controller
         return to_route('users.index')
             ->with('mensagem.sucesso', "Usuário {$user->nome} atualizado com sucesso");
     }
+
+    public function show(User $user) {
+        return view('users.show')->with('user', $user);
+    }
 }

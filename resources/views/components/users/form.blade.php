@@ -13,12 +13,12 @@
             {{$message}}
         </div>
         @enderror  
-    </div>    
+    </div>      
     <div class="col-md-4">
         <label for="password" class="form-label">Senha:</label>
         <input type="password" id="password" name="password" class="form-control
             @error('password') is-invalid @enderror"  
-            @isset($password)value="{{ $password }}"@endisset>
+        >
         @error('password')  
         <div class="invalid-feedback">
             {{$message}}
@@ -98,6 +98,6 @@
         <input type="text" id="estado" name="estado" class="form-control">
     </div-->
     <div class="col-12">
-        <button class="btn btn-primary" type="submit">Cadastrar</button>
+        <button class="btn btn-primary" type="submit">Salvar</button>
     </div>
 </form>
