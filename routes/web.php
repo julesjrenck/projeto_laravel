@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return redirect('/users');
+    return redirect('/login');
 })->middleware(\App\Http\Middleware\Autenticador::class);
 
 Route::resource('/users', UsersController::class);

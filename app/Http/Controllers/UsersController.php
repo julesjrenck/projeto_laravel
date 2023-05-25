@@ -26,7 +26,7 @@ class UsersController extends Controller
        $user = User::create($data);
        $request->session()->flash('mensagem.sucesso', "Usuário {$user->nome} adicionado com sucesso");
        Auth::login($user);
-       return to_route('users.index');
+       return to_route('users.show', $user->id);
     }
 
     public function destroy(User $user) {       

@@ -1,4 +1,4 @@
-<x-layout title="Editar Usuário {{ $user->nome }}">
+<x-layout title="Editar Usuário {{ $user->nome }}" nome="{{ $user->nome }}" id="{{ $user->id }}">
     <x-users.form 
         :action="route('users.update', $user->id)" 
         :update="true"
