@@ -35,7 +35,42 @@
                         </tbody>
                      </table>
                 </div>
-                <div class="tab-pane fade" id="nav-endereco" role="tabpanel" aria-labelledby="nav-endereco-tab" tabindex="0">Endereço</div>
+                <div class="tab-pane fade" id="nav-endereco" role="tabpanel" aria-labelledby="nav-endereco-tab" tabindex="0">                
+                    @empty($endereco)
+                        <p class="mt-3">Ainda não há um endereço cadastrado <a href="{{ route('enderecos.create') }}" class="btn btn-light">Adicionar</a></p>                        
+                    @endempty
+                    @if($endereco)
+                    <table class="table caption-top">
+                        <caption>Dados do Endereço</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Cep</th>
+                                <th scope="col">Rua</th>
+                                <th scope="col">Número</th>
+                                <th scope="col">Complemento</th>
+                                <th scope="col">Bairro</th>
+                                <th scope="col">Cidade</th>
+                                <th scope="col">Estado</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{$endereco->cep}}</td>
+                                <td>{{$endereco->rua}}</td>
+                                <td>{{$endereco->numero}}</td>
+                                <td>{{$endereco->complemento}}</td>
+                                <td>{{$endereco->bairro}}</td>
+                                <td>{{$endereco->cidade}}</td>
+                                <td>{{$endereco->estado}}</td>
+                                <td>
+                                
+                                </td>
+                            </tr>                            
+                        </tbody>
+                     </table>
+                    @endif
+                </div>
                 <div class="tab-pane fade" id="nav-foto" role="tabpanel" aria-labelledby="nav-foto-tab" tabindex="0">Foto</div>
             </div>
         </div>

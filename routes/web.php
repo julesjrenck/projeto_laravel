@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\EnderecosController;
 use App\Http\Middleware\Autenticador;
 use Illuminate\Support\Facades\Route;
 
@@ -25,3 +26,7 @@ Route::resource('/users', UsersController::class);
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'store'])->name('signin');
 Route::get('/logout', [LoginController::class, 'destroy'])->name('logout');
+
+Route::resource('/enderecos', EnderecosController::class)->only([
+    'create', 'store'
+]);
