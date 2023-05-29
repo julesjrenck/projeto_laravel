@@ -29,7 +29,7 @@
                                 <td>{{$user->telefone}}</td>
                                 <td>{{ date( 'd/m/Y' , strtotime($user->data_nascimento))}}</td>
                                 <td>
-                                <a href="{{ route('users.edit', $user->id) }}" class="btn btn-light">Editar</a>
+                                    <a href="{{ route('users.edit', $user->id) }}" class="btn btn-light">Editar</a>
                                 </td>
                             </tr>                            
                         </tbody>
@@ -64,7 +64,7 @@
                                 <td>{{$endereco->cidade}}</td>
                                 <td>{{$endereco->estado}}</td>
                                 <td>
-                                
+                                    <a href="{{ route('enderecos.edit', $endereco->id) }}" class="btn btn-light">Editar</a>
                                 </td>
                             </tr>                            
                         </tbody>

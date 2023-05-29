@@ -32,8 +32,8 @@ class UsersController extends Controller
 
     public function destroy(User $user) {       
         $user->delete();
-        return to_route('users.index')
-            ->with('mensagem.sucesso', "Usuário {$user->nome} removido com sucesso");
+        Auth::logout();
+        return to_route('login');
     }
 
     public function edit(User $user) {
@@ -41,11 +41,12 @@ class UsersController extends Controller
     }
 
     public function update(User $user, UsersFormRequest $request) {
-        $user->fill($request->all());
+        $data = $request->all();
+        $data['password'] = Hash::make($data['password']);
+        $user->fill($data);
         $user->save();
 
-        return to_route('users.index')
-            ->with('mensagem.sucesso', "Usuário {$user->nome} atualizado com sucesso");
+        return to_route('users.show', $user->id);
     }
 
     public function show(User $user) {
