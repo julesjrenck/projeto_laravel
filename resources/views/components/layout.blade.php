@@ -7,6 +7,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <title>{{ $title }}</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    @livewireStyles
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -38,5 +39,6 @@
         <h1>{{ $title }}</h1>
         {{ $slot }}
     </div>
+    @livewireScripts
 </body>
 </html>

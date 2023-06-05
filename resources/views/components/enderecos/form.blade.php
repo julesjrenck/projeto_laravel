@@ -5,21 +5,16 @@
     @endisset
      <div class="col-md-4">
         <label for="cep" class="form-label">CEP:</label>
-        <input type="text" id="cep" name="cep" class="form-control
-            @error('cep') is-invalid @enderror"
-            @isset($cep)value="{{ $cep }}"@endisset
-        >
-        @error('cep')  
-        <div class="invalid-feedback">
-            {{$message}}
-        </div>
-        @enderror  
+        <input type="hidden" id="cep" name="cep" value="{{ $cep }}">
+        <input type="text" class="form-control" value="{{ $cep }}" disabled>
     </div>
     <div class="col-md-4">
         <label for="rua" class="form-label">Rua:</label>
-        <input type="text" id="rua" name="rua" class="form-control
-            @error('rua') is-invalid @enderror"
-            @isset($rua)value="{{ $rua }}"@endisset
+        <input  type="text" 
+                id="rua"
+                name="rua" 
+                class="form-control @error('rua') is-invalid @enderror"
+                @isset($rua)value="{{ $rua }}"@endisset
         >
         @error('rua')  
         <div class="invalid-feedback">
@@ -29,9 +24,11 @@
     </div>
     <div class="col-md-4">
         <label for="numero" class="form-label">Número:</label>
-        <input type="text" id="numero" name="numero" class="form-control
-            @error('numero') is-invalid @enderror"
-            @isset($numero)value="{{ $numero }}"@endisset
+        <input type="text" 
+               id="numero" 
+               name="numero"
+               class="form-control @error('numero') is-invalid @enderror"
+               @isset($numero)value="{{ $numero }}"@endisset
         >
         @error('numero')  
         <div class="invalid-feedback">
@@ -41,15 +38,20 @@
     </div>
     <div class="col-md-4">
         <label for="complemento" class="form-label">Complemeto:</label>
-        <input type="text" id="complemento" name="complemento" class="form-control"
-            @isset($complemento)value="{{ $complemento }}"@endisset
+        <input  type="text" 
+                id="complemento" 
+                name="complemento" 
+                class="form-control"
+                @isset($complemento)value="{{ $complemento }}"@endisset
         >
     </div>
     <div class="col-md-4">
         <label for="bairro" class="form-label">Bairro:</label>
-        <input type="text" id="bairro" name="bairro" class="form-control
-            @error('bairro') is-invalid @enderror"
-            @isset($bairro)value="{{ $bairro }}"@endisset
+        <input  type="text" 
+                id="bairro" 
+                name="bairro" 
+                class="form-control @error('bairro') is-invalid @enderror"
+                @isset($bairro)value="{{ $bairro }}"@endisset
         >
         @error('bairro')  
         <div class="invalid-feedback">
@@ -59,9 +61,12 @@
     </div>
     <div class="col-md-4">
         <label for="cidade" class="form-label">Cidade:</label>
-        <input type="text" id="cidade" name="cidade" class="form-control
-            @error('cidade') is-invalid @enderror"
-            @isset($cidade)value="{{ $cidade }}"@endisset
+        <input  type="text" 
+                id="cidade" 
+                name="cidade" 
+                class="form-control
+                @error('cidade') is-invalid @enderror"
+                @isset($cidade)value="{{ $cidade }}"@endisset
         >
         @error('cidade')  
         <div class="invalid-feedback">
@@ -71,9 +76,11 @@
     </div>
     <div class="col-md-4">
         <label for="estado" class="form-label">Estado:</label>
-        <input type="text" id="estado" name="estado" class="form-control
-            @error('estado') is-invalid @enderror"
-            @isset($estado)value="{{ $estado }}"@endisset
+        <input  type="text" 
+                id="estado" 
+                name="estado" 
+                class="form-control @error('estado') is-invalid @enderror"
+                @isset($estado)value="{{ $estado }}"@endisset
         >
         @error('estado')  
         <div class="invalid-feedback">

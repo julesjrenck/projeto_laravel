@@ -28,5 +28,5 @@ Route::post('/login', [LoginController::class, 'store'])->name('signin');
 Route::get('/logout', [LoginController::class, 'destroy'])->name('logout');
 
 Route::resource('/enderecos', EnderecosController::class)->only([
-    'create', 'store', 'edit', 'update'
+    'create', 'edit', 'update'
 ]);
