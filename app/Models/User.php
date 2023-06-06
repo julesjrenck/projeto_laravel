@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable
 {
     use HasFactory;
-    protected $fillable = ['nome', 'password', 'data_nascimento', 'cpf', 'telefone', 'email'];
+    protected $fillable = ['nome', 'password', 'data_nascimento', 'cpf', 'telefone', 'email', 'foto'];
 
     public function enderecos()
     {

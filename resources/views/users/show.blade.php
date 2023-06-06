@@ -71,7 +71,28 @@
                      </table>
                     @endif
                 </div>
-                <div class="tab-pane fade" id="nav-foto" role="tabpanel" aria-labelledby="nav-foto-tab" tabindex="0">Foto</div>
+                <div class="tab-pane fade" id="nav-foto" role="tabpanel" aria-labelledby="nav-foto-tab" tabindex="0">
+                    <form action="{{ route('users.update', $user->id) }}" method="post" enctype="multipart/form-data">
+                        @csrf                       
+                        @method('PATCH')
+                        @if($user->foto)
+                            <img src="{{ asset('storage/'. $user->foto) }}" 
+                                 alt="Foto do Perfil" 
+                                 class="img-thumbnail mt-3"
+                                 style="width: 200px"
+                            >
+                        @endif
+                        <div class="col-md-4">                        
+                            <input  type="file" 
+                                    id="foto" 
+                                    name="foto" 
+                                    class="form-control mt-5" 
+                                    accept="image/gif, image/jpeg, image/png"
+                            >                            
+                        </div>
+                        <button class="btn btn-primary mt-3" type="submit">Salvar</button>
+                    </form>    
+                </div>
             </div>
         </div>
    </div>    

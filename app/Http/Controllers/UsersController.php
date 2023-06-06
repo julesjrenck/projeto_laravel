@@ -42,7 +42,12 @@ class UsersController extends Controller
 
     public function update(User $user, UsersFormRequest $request) {
         $data = $request->all();
-        $data['password'] = Hash::make($data['password']);
+        if ($data['_method'] === 'PATCH') {
+            $data['foto'] = $request->file('foto')->store('users_foto', 'public');
+        }
+        if ($data['_method'] === 'PUT') {
+            $data['password'] = Hash::make($data['password']);
+        }
         $user->fill($data);
         $user->save();
 

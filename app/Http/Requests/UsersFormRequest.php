@@ -42,6 +42,9 @@ class UsersFormRequest extends FormRequest
                     'telefone' => ['required', 'digits:11']
                 ];
             }
+            case 'PATCH': {
+                return [];
+            }
         }
         
     }
